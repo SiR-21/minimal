@@ -98,7 +98,7 @@ const Contact = () => {
 
       <div className="contacts-container">
         <h2>CONTACTS</h2>
-        <p>You can write me an email: ..@gmail.com</p>
+        <p>You can write me an email: daniel.noshadha21@gmail.com</p>
         <p>
           Don’t like emails? No problem, just fill out this form to contact me
           directly.
