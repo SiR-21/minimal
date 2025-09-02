@@ -304,3 +304,97 @@ html, body {
 /* -------------------------------- */
 
 
+
+/* ========================= */
+/* ===== MOBILE STYLES ===== */
+/* ========================= */
+@media (max-width: 768px) {
+  /* General adjustments */
+  html, body {
+    font-size: 90%; /* slightly smaller base font */
+  }
+
+  /* Top-left intro text */
+  .top-left-corner {
+    position: static;       /* remove fixed so it scrolls naturally */
+    max-width: 100%;        /* full width */
+    padding: 1rem; 
+    margin-top: 6rem;       /* push below header */
+  }
+
+  .top-left-corner h2 {
+    font-size: 2rem; 
+    text-align: center;     /* center heading */
+  }
+
+  .top-left-corner p {
+    font-size: 1rem;
+    line-height: 1.5; 
+    text-align: justify;
+  }
+
+  /* About page */
+  .about-container {
+    grid-template-columns: 1fr;  /* single column */
+    gap: 1rem;
+    width: 95%;
+    margin: 4rem auto;
+    overflow-y: visible;         /* let page scroll normally */
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .timeline-content p {
+    font-size: 1rem;
+  }
+
+  /* Services page */
+  .services-container {
+    grid-template-columns: 1fr;  /* stack vertically */
+    width: 95%;
+    margin: 4rem auto;
+    gap: 1rem;
+  }
+
+  .services-column h2,
+  .services-column li {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  /* Contacts section */
+  .contacts-container {
+    position: static;      /* let it flow naturally */
+    max-width: 100%;
+    padding: 1rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .contacts-container h2 {
+    font-size: 2rem;
+  }
+
+  .contacts-container p {
+    font-size: 1rem;
+  }
+
+  .contacts-form {
+    position: static;   /* stop absolute placement */
+    width: 95%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+
+  .contacts-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .contacts-form input,
+  .contacts-form textarea,
+  .contacts-form button {
+    font-size: 0.95rem;
+  }
+}
