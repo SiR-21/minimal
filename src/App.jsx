@@ -42,10 +42,23 @@ const App = () => {
       else setTheme('midnight');
     };
 
+    
     updateTheme();
     const timer = setInterval(updateTheme, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+  const hasLoaded = sessionStorage.getItem("hasLoaded");
+
+  if (!hasLoaded) {
+    setLoading(true);
+    sessionStorage.setItem("hasLoaded", "true");
+  } else {
+    setLoading(false);
+  }
+}, []);
+
 
   useEffect(() => {
     document.documentElement.className = theme;
