@@ -17,7 +17,6 @@
     "@react-three/drei": "^10.6.1",
     "@react-three/fiber": "^9.3.0",
     "@tailwindcss/vite": "^4.1.11",
-    "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.23.12",
     "globe.gl": "^2.43.0",
     "gsap": "^3.13.0",
