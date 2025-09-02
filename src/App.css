@@ -304,7 +304,6 @@ html, body {
 /* -------------------------------- */
 
 
-
 /* ========================= */
 /* ===== MOBILE STYLES ===== */
 /* ========================= */
@@ -333,17 +332,47 @@ html, body {
     text-align: justify;
   }
 
-  /* About page */
+  /* About page - UPDATED */
   .about-container {
     grid-template-columns: 1fr;  /* single column */
     gap: 1rem;
     width: 95%;
-    margin: 4rem auto;
+    margin: 2rem auto;           /* reduced top margin */
     overflow-y: visible;         /* let page scroll normally */
+    padding: 0 0.5rem;          /* add some padding */
   }
+
+  /* Hide timeline on mobile or make it a simple header */
+  .about-column.timeline {
+    display: none;              /* completely hide timeline on mobile */
+  }
+
+  /* Alternative: if you want to keep timeline as simple text markers */
+  /*
+  .about-column.timeline {
+    order: -1;                  // put timeline first
+    margin-bottom: 1rem;
+  }
+
+  .timeline-item {
+    display: inline-block;
+    margin: 0 1rem 0.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .timeline-item[style] {
+    margin-top: 0 !important;   // override inline styles
+  }
+  */
 
   .about-text {
     font-size: 1rem;
+    line-height: 1.6;           /* better readability */
+  }
+
+  .about-text p {
+    margin-bottom: 1.5rem !important;  /* override inline styles */
+    text-align: left;           /* better for mobile reading */
   }
 
   .timeline-content p {
@@ -386,6 +415,7 @@ html, body {
     width: 95%;
     margin: 2rem auto;
     padding: 1.5rem;
+    margin-top: 100px;
   }
 
   .contacts-form h2 {
@@ -395,6 +425,31 @@ html, body {
   .contacts-form input,
   .contacts-form textarea,
   .contacts-form button {
+    font-size: 0.95rem;
+  }
+}
+
+/* Additional mobile breakpoint for very small screens */
+@media (max-width: 480px) {
+  .about-container {
+    width: 98%;
+    margin: 1rem auto;
+    padding: 0 0.25rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+  }
+
+  .about-text p {
+    margin-bottom: 1.2rem !important;
+  }
+
+  .top-left-corner h2 {
+    font-size: 1.8rem;
+  }
+
+  .top-left-corner p {
     font-size: 0.95rem;
   }
 }
