@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/logo-morning.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daniel Noshadha</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      function updateFavicon() {
+        const hour = new Date().getHours();
+        const favicon = document.getElementById('favicon');
+        let iconPath = '/src/assets/logo-morning.png'; // default
+
+        if (hour >= 6 && hour < 12) {
+          iconPath = '/src/assets/logo-morning.png';
+        } else if (hour >= 12 && hour < 18) {
+          iconPath = '/src/assets/logo-afternoon.png';
+        } else if (hour >= 18 && hour < 22) {
+          iconPath = '/src/assets/logo-evening.png';
+        } else {
+          iconPath = '/src/assets/logo-evening.png';
+        }
+
+        favicon.href = iconPath;
+      }
+
+      updateFavicon(); // Call it immediately
+    </script>
+  </body>
+</html>

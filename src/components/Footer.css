@@ -1,0 +1,11 @@
+.bottom-left-footer {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 100;
+  font-family: 'Geist', monospace;
+  line-height: 1.2;
+  z-index: 0;
+}

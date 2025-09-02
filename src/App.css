@@ -1,0 +1,306 @@
+/* ------------ Imports ------------ */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap'); 
+@import "tailwindcss";                               
+@font-face {
+  font-family: 'Bosch Display';                       
+  src: url('./assets/fonts/Bosch.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Remboy'; 
+  src: url('./assets/fonts/RemboyRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* --------------------------------- */
+
+
+
+/* --------- Color schemes --------- */
+
+/*   Using :root + class to switch   */
+/*    themes based on time of day    */
+
+:root.morning {
+  --bg-primary: #F5F0E6;
+  --bg-secondary: #DAD4CA;
+  --text-primary: #0B3D2E;
+  --accent: #B87333;
+  --highlight: #E3C28D;
+}
+
+:root.afternoon {
+  --bg-primary: #D6D1C6;
+  --bg-secondary: #F5F0E6;
+  --text-primary: #26473F;
+  --accent: #B87333;
+  --highlight: #D99152;
+}
+
+:root.evening {
+  --bg-primary: #26473F;
+  --bg-secondary: #0B3D2E;
+  --text-primary: #F5F0E6;
+  --accent: #B87333;
+  --highlight: #C67C48;
+}
+
+:root.midnight {
+  --bg-primary: #062820;
+  --bg-secondary: #1B3A34;
+  --text-primary: #F5F0E6;
+  --accent: #B87333;
+  --highlight: #A0602E;
+}
+/* --------------------------------- */
+
+
+
+/* ------- Basic html style -------- */
+html, body {
+  margin: 0;            
+  padding: 0;          
+  height: 100%;       
+  background-color: var(--bg-primary);                          
+  color: var(--text-primary);                                  
+  transition: background-color 0.5s ease, color 0.5s ease;      /* smooth theme transitions */
+  scroll-behavior: smooth;                                      /* smooth scrolling for anchor links */
+}
+/* --------------------------------- */
+
+
+
+.loader-container {
+  position: fixed;
+  top: 50%;
+  left: 100px;
+  z-index: 9999;
+  font-family: 'Geist', monospace; 
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.loader-container.fade-out {
+  opacity: 0;
+}
+
+.loader-text {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.loader-bar {
+  width: 350px;
+  height: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  background: var(--text-primary);
+  width: 0;
+  transition: width 0.1s ease-in-out;
+}
+
+.app-fade-in {
+  opacity: 0;
+  animation: fadeInApp 0.8s forwards; /* fade in smoothly */
+}
+
+@keyframes fadeInApp {
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* -------- Main page style -------- */
+.top-left-corner {
+  position: fixed;        /* stays in place when scrolling */
+  top: 110px; 
+  left: 20px; 
+  max-width: 600px;       /* prevents text from stretching too wide */
+  color: var(--text-primary);
+  padding: 1rem;          /* spacing around text */
+  z-index: 20;            /* ensures it sits above other elements */
+}
+
+.top-left-corner h2 {
+  font-weight: 400;                       
+  font-family: 'Remboy', sans-serif;      
+  font-size: 2.7rem;                      
+  padding-bottom: 10px;   /* spacing below heading */
+}
+
+.top-left-corner p {
+  font-weight: 100; 
+  font-family: 'Geist', monospace; 
+  font-size: 1.1rem; 
+  padding-bottom: 10px; 
+}
+/* --------------------------------- */
+
+
+
+/* ------- About page style -------- */
+.about-container {
+  display: grid;                    /* enables grid layout */
+  grid-template-columns: 1fr 2fr;   /* left column smaller, right column larger */
+  gap: 2rem;                        /* space between columns */
+  width: 90%; 
+  margin: 6rem auto 2rem;           /* centered horizontally; top margin leaves space for sticky header */
+  max-width: 1400px;                /* prevents container from getting too wide on large screens */
+  scroll-snap-type: y mandatory;    /* enables vertical scroll snapping */
+  overflow-y: scroll;               /* allow vertical scrolling */
+}
+
+.about-column {
+  padding: 1.5rem; 
+  scroll-snap-align: start;         /* snaps each section at top on scroll */
+}
+
+.about-text{
+  font-size: 1.3rem; 
+  font-weight: 200; 
+  font-family: 'Geist', monospace;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;          /* space between timeline events */
+}
+
+.timeline-content {
+  padding-left: 0.5rem;         /* small indent to separate text from markers */
+}
+
+.timeline-content p {
+  font-weight: 300; 
+  font-family: 'Geist', monospace;
+  margin: 0.2rem 0 0;           /* small top spacing, no bottom margin */
+  font-size: 1.3rem; 
+  color: var(--text-secondary); 
+}
+/* --------------------------------- */
+
+
+
+/* ------ Services page style ------ */
+.services-container {
+  display: grid;                            /* use grid for column layout */
+  grid-template-columns: 1fr 2fr 1fr 2fr;   /* 4 columns: narrow-wide-narrow-wide */
+  gap: 2rem;                                /* space between columns */
+  width: 80%;
+  margin: 6rem auto 2rem; 
+}
+
+.services-column {
+  padding: 1.5rem; 
+  scroll-snap-align: start;     /* if parent has scroll snapping, align section at start */
+}
+
+.services-column h2 {
+  font-size: 1.4rem; 
+  margin-bottom: 40px; 
+}
+
+.services-column li {
+  font-size: 1.4rem; 
+  margin-bottom: 40px; 
+}
+/* --------------------------------- */
+
+
+
+
+.contacts-container {
+  position: absolute;
+  right: 100px;
+  bottom: 270px;
+  max-width: 450px;
+}
+
+.contacts-container h2{
+  font-size: 2.5rem;
+  font-weight: 400; 
+  font-family: 'Geist', monospace;
+}
+
+.contacts-container p{
+  font-size: 1.1rem;
+  font-weight: 100; 
+  font-family: 'Geist', monospace;
+}
+
+.contacts-form {
+  position: absolute;
+  left: 200px;
+  top: 250px;
+  width: 600px;         /* keep form narrow for readability */
+  padding: 2rem;
+  border-radius: 16px;      /* rounded corners */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2); /* subtle shadow */
+}
+
+.contacts-form h2 {
+  font-size: 1.8rem;
+  font-family: 'Remboy', sans-serif;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.contacts-form .form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;                /* space between inputs */
+}
+
+.contacts-form input,
+.contacts-form textarea {
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  font-weight: 100;
+  border: 0.01px solid var(--accent);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Geist', monospace;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contacts-form input:focus,
+.contacts-form textarea:focus {
+  border-color: var(--highlight);
+  box-shadow: 0 0 6px var(--highlight);
+  outline: none;
+}
+
+.contacts-form button {
+  padding: 0.9rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: 'Geist', monospace;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contacts-form button:hover {
+  background: var(--highlight);
+  transform: translateY(-2px); /* slight lift effect */
+}
+
+.contacts-form p {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+/* -------------------------------- */
+
+
