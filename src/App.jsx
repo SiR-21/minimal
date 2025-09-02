@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const App = () => {
   const [time, setTime] = useState(new Date());
@@ -38,6 +39,7 @@ const App = () => {
 
   return (
     <div className="app-fade-in">
+      <SpeedInsights/>
       <Header time={time} theme={theme} />
 
       <div className="top-left-corner">
