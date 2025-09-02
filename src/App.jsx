@@ -6,28 +6,6 @@ import Footer from './components/Footer';
 const App = () => {
   const [time, setTime] = useState(new Date());
   const [theme, setTheme] = useState('morning'); // default theme
-  const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
-  const [fadeOutLoader, setFadeOutLoader] = useState(false);
-
-  // Loader effect
-  useEffect(() => {
-    let interval;
-    if (loading) {
-      interval = setInterval(() => {
-        setProgress((prev) => {
-          if (prev >= 100) {
-            clearInterval(interval);
-            setFadeOutLoader(true); // start fade-out
-            setTimeout(() => setLoading(false), 500); // wait for fade-out
-            return 100;
-          }
-          return prev + 2;
-        });
-      }, 20);
-    }
-    return () => clearInterval(interval);
-  }, [loading]);
 
   // Theme logic
   useEffect(() => {
@@ -48,32 +26,15 @@ const App = () => {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-  const hasLoaded = sessionStorage.getItem("hasLoaded");
-
-  if (!hasLoaded) {
-    setLoading(true);
-    sessionStorage.setItem("hasLoaded", "true");
-  } else {
-    setLoading(false);
-  }
-}, []);
+  
 
 
   useEffect(() => {
     document.documentElement.className = theme;
   }, [theme]);
 
-  if (loading) {
-    return (
-      <div className={`loader-container ${fadeOutLoader ? 'fade-out' : ''}`}>
-        <div className="loader-text">{progress}%</div>
-        <div className="loader-bar">
-          <div className="loader-bar-fill" style={{ width: `${progress}%` }}></div>
-        </div>
-      </div>
-    );
-  }
+
+  
 
   return (
     <div className="app-fade-in">
